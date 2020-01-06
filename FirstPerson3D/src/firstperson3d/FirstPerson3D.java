@@ -17,16 +17,17 @@ public class FirstPerson3D extends PApplet
 	public void settings()
 	{
 		size(800, 600, P3D);
+		fullScreen();
 	}
 	
 	public void setup() 
 	{
-		//perspective(PConstants.HALF_PI, width/height, 1, 1000000);
 		game = new GameManager(this);
 	}
 
 	public void draw() 
 	{
+		println(frameRate);
 		game.draw();
 	}
 	
