@@ -7,6 +7,7 @@ public abstract class Entity
 	protected PApplet p;
 	public PVector origin;
 	public float rotX, rotY, rotZ;
+	public BBox bbox;
 	
 	public abstract void tick();
 	public abstract void draw();

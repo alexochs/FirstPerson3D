@@ -4,16 +4,19 @@ import processing.core.*;
 
 public class Player extends QueasyCam 
 {
+	private WorldManager world;
+	
 	public void tick()
 	{
-		super.draw();
+		super.draw(world.level.entityList);	
 		p.lights();
-		p.pointLight(255, 255, 255, origin.x, origin.y, origin.z);
 	}
 	
 	public void draw()
 	{
 		tick();
+		
+		p.println(campos.x + " " + campos.y + " " + campos.z);
 	}
 	
 	public void keyPressed()
@@ -27,9 +30,10 @@ public class Player extends QueasyCam
 	
 	}
 	
-	Player(PApplet p, PVector origin) 
+	Player(PApplet p, WorldManager world, PVector origin) 
 	{
 		super(p, origin);
+		this.world = world;
 		speed = .2f;
 		sensitivity = .75f;
 	}

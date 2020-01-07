@@ -5,8 +5,8 @@ import processing.core.*;
 public class WorldManager
 {
 	private PApplet p;
-	private Player player;
-	private Level level;
+	public Player player;
+	public Level level;
 	
 	void tick()
 	{
@@ -18,8 +18,6 @@ public class WorldManager
 	{
 		tick();
 		player.draw();
-		
-		p.background(0);
 		level.draw();
 	}
 	
@@ -36,7 +34,7 @@ public class WorldManager
 	WorldManager(PApplet p)
 	{
 		this.p = p;
-		this.player = new Player(p, new PVector(0, 0, 0));
-		this.level = new Level(p);
+		this.player = new Player(p, this, new PVector(0, 0, -150));
+		this.level = new Level(p, this);
 	}
 }

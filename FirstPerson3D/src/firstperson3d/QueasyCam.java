@@ -4,6 +4,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Robot;
 import java.awt.GraphicsEnvironment;
+import java.util.ArrayList;
 import java.util.HashMap;
 import processing.core.*;
 import processing.event.KeyEvent;
@@ -63,7 +64,7 @@ public class QueasyCam
 		p.perspective(PConstants.HALF_PI, (float)p.width/(float)p.height, 0.01f, 1000f);
 	}
 
-	public void draw()
+	public void draw(ArrayList<Entity> entityList)
 	{
 		if (!controllable) return;
 		
@@ -117,7 +118,13 @@ public class QueasyCam
 		if (keys.containsKey('s') && keys.get('s')) velocity.sub(PVector.mult(new PVector(forward.x, 0, forward.z), speed));
 
 		velocity.mult(friction);
-		campos.add(velocity);
+		boolean newPosValid = true;
+		for(Entity ent : entityList)
+		{
+			if(ent.bbox.isInBounds(PVector.add(campos, velocity)))
+				newPosValid = false; 
+		}
+		if (newPosValid) campos.add(velocity);
 		origin = PVector.sub(campos, new PVector(0f, -eyeheight, 0f));
 		center = PVector.add(campos, forward);
 		p.camera(campos.x, campos.y, campos.z, center.x, center.y, center.z, up.x, up.y, up.z);
