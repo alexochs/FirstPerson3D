@@ -7,14 +7,16 @@ public class Level
 {
 	private PApplet p;
 	private WorldManager world;
-	private PShape plantModel;
+	
+	private PImage texFloor;
+	private PImage texWall;
+	
 	public ArrayList<Entity> entityList;
 	
 	public void draw()
 	{
 		p.background(0);
 		p.lights();
-		p.pointLight(255, 255, 255, world.player.campos.x, world.player.campos.y, world.player.campos.z);
 		for (Entity ent : entityList)
 			ent.draw();
 	}
@@ -24,15 +26,46 @@ public class Level
 		this.p = p;
 		this.world = world;
 		
-		plantModel = p.loadShape("models/marijuanna.obj");
+		texFloor = p.loadImage("textures/carpet.jpg");
+		texWall = p.loadImage("textures/wooden_wall.jpg");
 		
 		entityList = new ArrayList<Entity>();
-		entityList.add(new Box(p, new PVector(0, 0, 0), 300f, 64f, 8f, 0f, 0f, 0f, new Color(200, 12, 66)));
-		entityList.add(new Box(p, new PVector(0, 0, -300), 300f, 64f, 8f, 0f, 0f, 0f, new Color(200, 12, 66)));
-		entityList.add(new Box(p, new PVector(150, 0, -150), 8f, 64f, 300f, 0f, 0f, 0f, new Color(200, 12, 66)));
-		entityList.add(new Box(p, new PVector(-150, 0, -150), 8f, 64f, 300f, 0f, 0f, 0f, new Color(200, 12, 66)));
-		entityList.add(new Box(p, new PVector(0, 32, -150), 300f, 8f, 300f, 0f, 0f, 0f, new Color(0, 40, 220)));
-		entityList.add(new Box(p, new PVector(0, -32, -150), 300f, 8f, 300f, 0f, 0f, 0f, new Color(220)));
-		entityList.add(new Plant(p, new PVector(0, 0, -150), 0, 0, 0, plantModel));
+		
+		//North Wall
+		entityList.add(new Box(p, new PVector(32*0, 0, 0), texWall));
+		entityList.add(new Box(p, new PVector(32*1, 0, 0), texWall));
+		entityList.add(new Box(p, new PVector(32*2, 0, 0), texWall));
+		entityList.add(new Box(p, new PVector(32*3, 0, 0), texWall));
+		
+		//South Wall
+		entityList.add(new Box(p, new PVector(32*0, 0, -32*5), texWall));
+		entityList.add(new Box(p, new PVector(32*1, 0, -32*5), texWall));
+		entityList.add(new Box(p, new PVector(32*2, 0, -32*5), texWall));
+		entityList.add(new Box(p, new PVector(32*3, 0, -32*5), texWall));
+		
+		//West Wall
+		entityList.add(new Box(p, new PVector(-32, 0, -32*0), texWall));
+		entityList.add(new Box(p, new PVector(-32, 0, -32*1), texWall));
+		entityList.add(new Box(p, new PVector(-32, 0, -32*2), texWall));
+		entityList.add(new Box(p, new PVector(-32, 0, -32*3), texWall));
+		entityList.add(new Box(p, new PVector(-32, 0, -32*4), texWall));
+		entityList.add(new Box(p, new PVector(-32, 0, -32*5), texWall));
+		
+		//West Wall
+		entityList.add(new Box(p, new PVector(32*4, 0, -32*0), texWall));
+		entityList.add(new Box(p, new PVector(32*4, 0, -32*1), texWall));
+		entityList.add(new Box(p, new PVector(32*4, 0, -32*2), texWall));
+		entityList.add(new Box(p, new PVector(32*4, 0, -32*3), texWall));
+		entityList.add(new Box(p, new PVector(32*4, 0, -32*4), texWall));
+		entityList.add(new Box(p, new PVector(32*4, 0, -32*5), texWall));
+		
+		//Floor
+		for (int row = 0; row < 4; row++)
+		{
+			for (int col = 0; col < 6; col++)
+			{
+				entityList.add(new Box(p, new PVector(32*row, 32, -32*col), texFloor));
+			}
+		}
 	}
 }

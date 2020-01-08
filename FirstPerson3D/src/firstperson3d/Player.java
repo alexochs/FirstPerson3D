@@ -34,7 +34,7 @@ public class Player extends QueasyCam
 	{
 		super(p, origin);
 		this.world = world;
-		speed = .2f;
-		sensitivity = .75f;
+		speed = .125f;
+		sensitivity = .5f;
 	}
 }

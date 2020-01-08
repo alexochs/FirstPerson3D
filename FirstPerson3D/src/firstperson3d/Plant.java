@@ -1,34 +1,36 @@
 package firstperson3d;
 
 import processing.core.*;
+
 public class Plant extends Entity
 {
-	private PApplet p;
-	private PShape model;
-
-	public void tick() 
+	private PShape mdl;
+	
+	public void tick()
 	{
 		
 	}
 
-	public void draw()
-	{
+	public void draw() 
+	{	
 		p.pushMatrix();
 		
 		p.translate(origin.x, origin.y, origin.z);
+		p.scale(.5f);
 		p.rotateX(rotX);
 		p.rotateY(rotY);
 		p.rotateZ(rotZ);
 		
-		p.shape(model);
+		p.shape(mdl);
 		
 		p.popMatrix();
 	}
 	
-	Plant(PApplet p, PVector origin, float rotX, float rotY, float rotZ, PShape model)
+	Plant(PApplet p, PVector origin, float rotX, float rotY, float rotZ)
 	{
 		super(p, origin, rotX, rotY, rotZ);
 		bbox = new BBox();
-		this.model = model;
+		this.mdl = p.loadShape("models/marijuanna.obj");
+		origin.y += 32;
 	}
 }

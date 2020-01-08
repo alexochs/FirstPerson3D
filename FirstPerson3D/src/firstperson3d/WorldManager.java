@@ -34,7 +34,7 @@ public class WorldManager
 	WorldManager(PApplet p)
 	{
 		this.p = p;
-		this.player = new Player(p, this, new PVector(0, 0, -150));
+		this.player = new Player(p, this, new PVector(64, 0, -64));
 		this.level = new Level(p, this);
 	}
 }
