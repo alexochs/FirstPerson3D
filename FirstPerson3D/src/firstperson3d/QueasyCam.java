@@ -26,7 +26,7 @@ public class QueasyCam
 
 	protected PApplet p;
 	private Robot robot;
-	private PVector center;
+	public PVector center;
 	private PVector up;
 	private PVector right;
 	private PVector forward;
@@ -61,7 +61,7 @@ public class QueasyCam
 		friction = 0.75f;
 		keys = new HashMap<Character, Boolean>();
 
-		p.perspective(PConstants.HALF_PI, (float)p.width/(float)p.height, 0.01f, 1000f);
+		p.perspective(70*3.14f/180f, (float)p.width/(float)p.height, 0.01f, 1000f);
 	}
 
 	public void draw(ArrayList<Entity> entityList)
@@ -144,19 +144,19 @@ public class QueasyCam
 		}
 	}
     
-    /*public void beginHUD()
+    public void beginHUD()
     {
-        g.pushMatrix();
-        g.hint(DISABLE_DEPTH_TEST);
-        g.resetMatrix();
-        g.applyMatrix(originalMatrix);
+        p.pushMatrix();
+        p.hint(p.DISABLE_DEPTH_TEST);
+        p.resetMatrix();
+        //p.applyMatrix(originalMatrix);
     }
     
     public void endHUD()
     {
-        g.hint(ENABLE_DEPTH_TEST);
-        g.popMatrix();
-    }*/
+        p.hint(p.ENABLE_DEPTH_TEST);
+        p.popMatrix();
+    }
 	
 	private float clamp(float x, float min, float max){
 		if (x > max) return max;

@@ -1,6 +1,7 @@
 package firstperson3d;
 
 import processing.core.*;
+import processing.opengl.PGraphicsOpenGL;
 
 public class WorldManager
 {
@@ -23,12 +24,12 @@ public class WorldManager
 	
 	void keyPressed()
 	{
-		//player.keyPressed();
+		player.keyPressed();
 	}
 	
 	void keyReleased()
 	{
-		//player.keyReleased();
+		player.keyReleased();
 	}
 	
 	WorldManager(PApplet p)

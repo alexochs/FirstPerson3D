@@ -26,8 +26,7 @@ public class FirstPerson3D extends PApplet
 
 	public void draw() 
 	{
-		game.draw();
-	}
+		game.draw();	}
 	
 	public void keyPressed()
 	{
