@@ -36,7 +36,7 @@ public class Level
 		texBuyseeds = p.loadImage("textures/buyseeds.jpeg");
 		texHiredealer = p.loadImage("textures/hiredealer.jpeg");
 		texHireMexican = p.loadImage("textures/hiremexican.jpeg");
-		mdlPlant = p.loadShape("models/lowpolytree.obj");
+		mdlPlant = p.loadShape("models/marijuanna.obj");
 		mdlTV = p.loadShape("models/MI SMART TV.obj");
 		
 		entityList = new ArrayList<Entity>();

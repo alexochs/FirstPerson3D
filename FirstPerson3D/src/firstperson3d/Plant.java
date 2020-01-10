@@ -38,7 +38,7 @@ public class Plant extends Entity
 		p.pushMatrix();
 		
 		p.translate(origin.x, origin.y, origin.z);
-		p.scale(scale*5f, 5f, scale*5f);
+		p.scale(scale*.25f, .25f, scale*.25f);
 		p.rotateX(rotX);
 		p.rotateY(rotY);
 		p.rotateZ(rotZ);
@@ -52,7 +52,7 @@ public class Plant extends Entity
 	{
 		super(p, origin, PConstants.PI, (float)(Math.random()*PConstants.TWO_PI), 0f);
 		bbox = new BBox(new PVector(origin.x, origin.y - 16, origin.z), 16, 32, 16);
-		origin.y -= 24;
+		origin.y -= 16;
 		this.box = box;
 		this.mdl = mdl;
 		this.typeid = Entity.PLANT;

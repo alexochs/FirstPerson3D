@@ -17,6 +17,7 @@ public class FirstPerson3D extends PApplet
 	public void settings()
 	{
 		size(800, 600, P3D);
+		//fullScreen(P3D);
 	}
 	
 	public void setup() 
@@ -26,7 +27,8 @@ public class FirstPerson3D extends PApplet
 
 	public void draw() 
 	{
-		game.draw();	}
+		game.draw();	
+	}
 	
 	public void keyPressed()
 	{

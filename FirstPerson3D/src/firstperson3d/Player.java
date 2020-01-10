@@ -141,7 +141,7 @@ public class Player extends QueasyCam
 	{
 		tick();
 		p.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-		p.println("Money: $" + money + "\nWeed: " + weed + "g | Seeds: " + seeds + "\nDealers: " + dealers + " | Mexicans: " + mexicans);
+		p.println(p.frameRate + "Money: $" + money + "\nWeed: " + weed + "g | Seeds: " + seeds + "\nDealers: " + dealers + " | Mexicans: " + mexicans);
 	}
 	
 	public void keyPressed()
